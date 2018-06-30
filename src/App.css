@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -12,17 +12,21 @@
   height: 150px;
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
 .App-title {
   font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.App a {
+  color: #f16514;
+  text-decoration: underline;
+  display: initial;
 }
