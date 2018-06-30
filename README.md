@@ -123,7 +123,7 @@ module.exports = {
 };
 ```
 
-`create-react-app`在创建项目时，已经帮我们安装了`[eslint-config-react-app](https://www.npmjs.com/package/eslint-config-react-app)`, `[eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)`，所以不用担心这些模块的缺失。
+`create-react-app`在创建项目时，已经帮我们安装了[eslint-config-react-app](https://www.npmjs.com/package/eslint-config-react-app), [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)，所以不用担心这些模块的缺失。
 
 ```shell
 keepfool:create-react-app-sample/ $ yarn list eslint-config-react-app eslint-plugin-jsx-a11y                                                                            [18:13:09]
