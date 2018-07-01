@@ -40,23 +40,23 @@ or
 npm i react-app-rewired --save-dev
 ```
 
-### 配置`config-override.js`文件
+### 配置`config-overrides.js`文件
 
-在项目根目录下添加config-override.js文件
+在项目根目录下添加config-overrides.js文件
 
 ```jsx
-const { injectBabelPlugin } = require('react-app-rewired');
+const { injectBabelPlugin } = require('react-app-rewired')
 
-module.exports = function override(config, env) {
+module.exports = function override (config, env) {
   //do stuff with the webpack config...
   // 生产环境不需要hot-reloader
   if (env === 'production') {
-    return config;
+    return config
   }
 
   // 向babel-loader添加react-hot-loader插件
   config = injectBabelPlugin('react-hot-loader/babel', config)
-  return config;
+  return config
 }
 ```
 
@@ -89,6 +89,23 @@ class App extends Component {
 }
 
 export default hot(module)(App)
+```
+
+### 更改scripts
+
+将`react-scripts`替换成`react-app-rewired`
+
+```diff
+  /* package.json */
+
+  "scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test --env=jsdom",
++   "test": "react-app-rewired test --env=jsdom"
+}
 ```
 
 ## 3. 配置eslint
