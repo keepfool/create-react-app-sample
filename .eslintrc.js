@@ -1,6 +1,11 @@
 module.exports = {
-  "extends": ["react-app", "plugin:jsx-a11y/recommended"],
-  "plugins": ["jsx-a11y"],
+  "extends": [
+    "react-app",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "jsx-a11y"
+  ],
   "rules": {
     "indent": [
       "warn",
@@ -18,9 +23,16 @@ module.exports = {
       "warn",
       2
     ],
-    "semi": ["error", "never"],
-    "no-unused-vars": [
+    "semi": [
       "error",
+      "never"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "no-unused-vars": [
+      "warn",
       {
         "vars": "all",
         "args": "none",
@@ -28,4 +40,4 @@ module.exports = {
       }
     ]
   }
-};
+}
