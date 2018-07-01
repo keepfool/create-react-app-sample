@@ -9,5 +9,6 @@ module.exports = function override(config, env) {
 
   // 向babel-loader添加react-hot-loader插件
   config = injectBabelPlugin('react-hot-loader/babel', config)
+
   return config
 }
