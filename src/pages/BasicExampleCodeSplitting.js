@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Loadable from 'react-loadable'
-import Loading from '../components/Loading'
+import Loading from '@/components/Loading'
 
 const BasicExampleCodeSplitting = () => (
   <Router>
@@ -28,17 +28,17 @@ const BasicExampleCodeSplitting = () => (
 )
 
 const AsyncHome = Loadable({
-  loader: () => import('../components/Home'),
+  loader: () => import('@/components/Home'),
   loading: Loading
 })
 
 const AsnycAbout = Loadable({
-  loader: () => import('../components/About'),
+  loader: () => import('@/components/About'),
   loading: Loading
 })
 
 const AsyncTopics = Loadable({
-  loader: () => import('../components/Topics'),
+  loader: () => import('@/components/Topics'),
   loading: Loading
 })
 

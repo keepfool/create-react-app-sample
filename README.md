@@ -60,6 +60,24 @@ module.exports = function override (config, env) {
 }
 ```
 
+#### `react-app-rewired`也可以配置webpack的alias
+
+```js
+const path = require('path')
+
+function resolve(dir) {
+  return path.join(__dirname, '.', dir)
+}
+
+module.exports = function override (config, env) {
+  // 路径别名映射，用'@'来表示'src'绝对路径
+  config.resolve.alias = {
+    '@': resolve('src')
+  }
+  return config
+}
+```
+
 ### 更改App.js
 
 - 引入`react-hot-loader`的`hot`函数
