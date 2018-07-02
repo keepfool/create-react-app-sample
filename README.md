@@ -513,24 +513,20 @@ class App extends Component {
 export default hot(module)(App)
 ```
 
-## 5. 使用redux
+## 5. 使用Redux
 
-为了将redux示例和基础示例区分出来，我们新建一个分支
+### 安装依赖
 
-```shell
-git checkout -b redux-todo-sample
-```
-
-安装`redux`, `react-redux`, `redux-devtools`依赖
+安装redux, react-redux, redux-devtools依赖
 
 ```shell
 yarn add redux react-redux
 yarn add redux-devtools --dev
 ```
 
-src目录结构如下（一些非关键文件未列出来）
+### 目录结构
 
-```shell
+```sjell
 .
 ├── App.js
 ├── actions
@@ -551,15 +547,23 @@ src目录结构如下（一些非关键文件未列出来）
 └── └── visibilityFilter.js
 ```
 
-实现流程
+### Redux工作流程
 
-- 定义reducers
-  - 每一个reducer都是纯函数
-  - 不对state做修改，而是返回新的state
-  - 通过`redux`的`combineReducers`函数将所有的reducers合并到一个store
-- 定义actions
-- 定义components
-- 定义containers
-  - 每个container都会引入一个component
-  - 在container中定义state、dispatch和组件props的映射关系(mapStateToProps, mapDispatchToProps)
-  - 使用`react-redux`的`connect([mapStateToProps], [mapDispatchToProps])`函数，将component和store连接起来
+![redux](http://oprrq2p36.bkt.clouddn.com/redux.png)
+
+#### 核心概念
+
+- Store：保存数据的地方，你可以把它看成一个容器，整个应用只能有一个Store。
+- State：Store对象包含所有数据，如果想得到某个时点的数据，就要对Store生成快照，这种时点的数据集合，就叫做State。
+- Action：State的变化，会导致View的变化。但是，用户接触不到State，只能接触到View。所以，State的变化必须是View导致的。Action就是View发出的通知，表示State应该要发生变化了。
+- Action Creator：View要发送多少种消息，就会有多少种Action。如果都手写，会很麻烦，所以我们定义一个函数来生成Action，这个函数就叫Action Creator。
+- Reducer：Store收到Action以后，必须给出一个新的State，这样View才会发生变化。这种State的计算过程就叫做Reducer。Reducer是一个函数，它接受Action和当前State作为参数，返回一个新的State。
+- dispatch：是View发出Action的唯一方法。
+
+#### 工作流程
+
+- 首先，用户（通过View）发出Action，发出方式就用到了dispatch方法。
+- 然后，Store自动调用Reducer，并且传入两个参数：当前State和收到的Action，Reducer会返回新的State
+- State一旦有变化，Store就会调用监听函数，来更新View。
+
+参考: [https://tech.meituan.com/redux-design-code.html](https://tech.meituan.com/redux-design-code.html)
