@@ -512,3 +512,54 @@ class App extends Component {
 
 export default hot(module)(App)
 ```
+
+## 5. 使用redux
+
+为了将redux示例和基础示例区分出来，我们新建一个分支
+
+```shell
+git checkout -b redux-todo-sample
+```
+
+安装`redux`, `react-redux`, `redux-devtools`依赖
+
+```shell
+yarn add redux react-redux
+yarn add redux-devtools --dev
+```
+
+src目录结构如下（一些非关键文件未列出来）
+
+```shell
+.
+├── App.js
+├── actions
+│   └── index.js
+├── components
+│   ├── Footer.js
+│   ├── Link.js
+│   ├── Todo.js
+│   └── TodoList.js
+├── containers
+│   ├── AddTodo.js
+│   ├── FilterLink.js
+│   └── VisibleTodoList.js
+├── index.js
+├── reducers
+│   ├── index.js
+│   ├── todos.js
+└── └── visibilityFilter.js
+```
+
+实现流程
+
+- 定义reducers
+  - 每一个reducer都是纯函数
+  - 不对state做修改，而是返回新的state
+  - 通过`redux`的`combineReducers`函数将所有的reducers合并到一个store
+- 定义actions
+- 定义components
+- 定义containers
+  - 每个container都会引入一个component
+  - 在container中定义state、dispatch和组件props的映射关系(mapStateToProps, mapDispatchToProps)
+  - 使用`react-redux`的`connect([mapStateToProps], [mapDispatchToProps])`函数，将component和store连接起来
