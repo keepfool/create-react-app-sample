@@ -1,5 +1,8 @@
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { toggleTodo, VisibilityFilters } from '@/actions'
+import { VisibilityFilters } from '@/actions/filterActions'
+import * as TodoActionCreators from '@/actions/todoActions'
 import TodoList from '@/components/TodoList'
 
 const getVisibleTodos = (todos, filter) => {
@@ -15,15 +18,32 @@ const getVisibleTodos = (todos, filter) => {
   }
 }
 
-const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
-})
+class TodoListContainer extends Component {
+  constructor (props) {
+    super(props)
 
-const mapDispatchToProps = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id))
-})
+    const { dispatch } = props
+
+    /**
+     * 将action creators对象转换成一个拥有同名key的对象
+     * 对象的每个属性都是一个被dispatch包装过的函数，这样在组件中就能够直接调用这些函数
+     */
+    this.boundActionCreators = bindActionCreators(TodoActionCreators, dispatch)
+  }
+
+  componentDidMount () {
+    let { dispatch } = this.props
+
+    let action = TodoActionCreators.addTodo('Use Redux')
+    dispatch(action)
+  }
+
+  render () {
+    let { todos } = this.props
+    return <TodoList todos={todos} {...this.boundActionCreators} />
+  }
+}
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList)
+  state => ({ todos: getVisibleTodos(state.todos, state.visibilityFilter)})
+)(TodoListContainer)

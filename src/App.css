@@ -1,3 +1,8 @@
+.App {
+  max-width: 640px;
+  margin: 10px auto;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -16,13 +21,27 @@
   text-align: center;
 }
 
+.App a {
+  color: #f16514;
+  text-decoration: underline;
+  display: initial;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-.App a {
-  color: #f16514;
-  text-decoration: underline;
-  display: initial;
+.todo {
+  display: flex;
+}
+
+.todo .text {
+  flex: 1;
+}
+
+.todo .remove {
+  width: 30px;
+  color: #f14014;
+  font-size: 16px;
 }
