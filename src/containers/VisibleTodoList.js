@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { VisibilityFilters } from '@/actions/filterActions'
-import * as TodoActionCreators from '@/actions/todoActions'
+import { VisibilityFilters } from '@/store/actions'
+import * as TodoActionCreators from '@/store/actions/todoActions'
 import TodoList from '@/components/TodoList'
 
 const getVisibleTodos = (todos, filter) => {
