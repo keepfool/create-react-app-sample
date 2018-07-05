@@ -32,10 +32,10 @@ class TodoListContainer extends Component {
   }
 
   componentDidMount () {
-    let { dispatch } = this.props
+    // let { dispatch } = this.props
 
-    let action = TodoActionCreators.addTodo('Use Redux')
-    dispatch(action)
+    // let action = TodoActionCreators.addTodo('Use Redux')
+    // dispatch(action)
   }
 
   render () {

@@ -11,11 +11,11 @@ yarn add redux-devtools --dev
 
 ## 目录结构
 
-```sjell
+```shell
 .
+├── App.css
 ├── App.js
-├── actions
-│   └── index.js
+├── App.test.js
 ├── components
 │   ├── Footer.js
 │   ├── Link.js
@@ -25,16 +25,35 @@ yarn add redux-devtools --dev
 │   ├── AddTodo.js
 │   ├── FilterLink.js
 │   └── VisibleTodoList.js
+├── index.css
 ├── index.js
-├── reducers
-│   ├── index.js
-│   ├── todos.js
-└── └── visibilityFilter.js
+├── logo.svg
+├── registerServiceWorker.js
+└── store
+    ├── actions
+    │   ├── filterActions.js
+    │   ├── githubActions.js
+    │   ├── index.js
+    │   └── todoActions.js
+    ├── index.js
+    ├── listeners
+    │   └── index.js
+    ├── middlewares           自定义中间件目录
+    │   ├── index.js          中间件入口
+    │   ├── logger.js         logger中间件
+    │   ├── promise.js        promise中间件，参考redux-promise
+    │   └── thunk.js          thunk中间件，参考redux-thunk
+    ├── reducers
+    │   ├── github.js
+    │   ├── index.js
+    │   ├── todos.js
+    │   └── visibilityFilter.js
+    └── util.js
 ```
 
 ## Redux工作流程
 
-![redux](http://oprrq2p36.bkt.clouddn.com/redux.png)
+![redux](http://oprrq2p36.bkt.clouddn.com/redux-flow.png)
 
 ### 核心概念
 

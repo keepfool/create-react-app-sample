@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '@/store/actions'
+import { asyncAddTodo } from '@/store/actions'
 
 const AddTodo = ({ dispatch }) => {
   let input
@@ -12,11 +12,11 @@ const AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value))
+        dispatch(asyncAddTodo(input.value))
         input.value = ''
       }}>
         <input ref={node => input = node }/>
-        <button typpe="submit">
+        <button typpe='submit'>
           Add Todo
         </button>
       </form>
